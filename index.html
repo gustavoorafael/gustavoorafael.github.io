@@ -3,67 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta de Amor</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7e1da;
-            text-align: center;
-            margin: 50px;
-        }
-
-        .carta {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #e44d26;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        .assinatura {
-            margin-top: 30px;
-            font-style: italic;
-            color: #555;
-        }
-        
-        .foto img {
-            width: 100%; /* Ajusta a largura da imagem para 100% da largura do contêiner */
-            height: auto; /* Mantém a proporção original da imagem */
-            margin-top: 20px;
-            border-radius: 8px; /* Adiciona borda arredondada à imagem */
-        }
-    </style>
+    <title>Calculadora de Notas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="container">
+    <h1>Calculadora de Notas</h1>
 
-    <div class="carta">
-        <h1>OI MINHA LINDA</h1>
+    <form id="calculator-form">
+        <label for="quantity">Quantidade de Avaliações:</label>
+        <input type="number" id="quantity" name="quantity" min="1">
 
-        <p>Queria te dizer que eu te amo muito! Você é a pessoa mais incrível que já conheci e é a pessoa certa pra mim!</p>
+        <div id="inputs"></div>
+        <div id="weights"></div>
 
-        <p>Quero agradecer por todos os momentos maravilhosos que a gente teve, só quero muita felicidade pra gente sempre!</p>
+        <button id="generate-button" type="button" onclick="generateInputFields()">Adicionar notas e pesos</button>
 
-        <p>Você é a minha sorte, eu morro de orgulho de você linda!</p>
+        <button id="calculate-button" type="button" onclick="calculateGrade()" style="display: none;">Calcular</button>
+        <button id="reset-button" type="button" onclick="resetForm()" style="display: none;">Resetar</button>
+    </form>
 
-        <p>Com todo o meu amor,</p>
+    <div id="result" class="result"></div>
 
-        <p class="assinatura">Seu namorado Gustavo, delícia, igual vc falou.</p>
+    <div class="observation">
+        <p>* Considere Notas de Avaliações como sendo notas de provas, trabalhos, relatórios etc.</p>
+        <p>Não esqueça que a somatória final dos pesos é igual a 100%.</p>
     </div>
+</div>
 
-        <div class="foto">
-           <img src="Fotos/fotoBellaegus.JPG" alt="Olha nois">
-        </div>
-        
-
-
+<script src="script.js"></script>
 </body>
 </html>
