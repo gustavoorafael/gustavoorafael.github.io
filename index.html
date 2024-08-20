@@ -3,34 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Notas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Contagem do nosso namoro</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7e1da;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .carta {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #e44d26;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .assinatura {
+            margin-top: 30px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .foto img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>Calculadora de Notas</h1>
 
-    <form id="calculator-form">
-        <label for="quantity">Quantidade de Avaliações:</label>
-        <input type="number" id="quantity" name="quantity" min="1">
+    <div class="carta">
+        <h1>Dia 27/08/2023 às 17:17</h1>
+        <p>Feliz</p>
+        <p class="contador"></p>
+        <p>de namoro!</p>
+        <div class="foto">
+            <img src="Fotos/fotoBellaegus.JPG" alt="Olha nois">
+        </div>
+        <p>Naquele dia frio, no sofá da sua casa, deitados do lados dos seus pais, a gente começou algo lindo.</p>
+        <p>Pra sempre eu e você, ta baum!</p>
+        <p>Eu te amo demais, meu amor!</p>
+        <p></p>
+        <p></p>
 
-        <div id="inputs"></div>
-        <div id="weights"></div>
+        <p>Com todo o meu amor,</p>
 
-        <button id="generate-button" type="button" onclick="generateInputFields()">Adicionar notas e pesos</button>
-
-        <button id="calculate-button" type="button" onclick="calculateGrade()" style="display: none;">Calcular</button>
-        <button id="reset-button" type="button" onclick="resetForm()" style="display: none;">Resetar</button>
-    </form>
-
-    <div id="result" class="result"></div>
-
-    <div class="observation">
-        <p>* Considere Notas de Avaliações como sendo notas de provas, trabalhos, relatórios etc.</p>
-        <p>Não esqueça que a somatória final dos pesos é igual a 100%.</p>
+        <p class="assinatura">Gusmento rs</p>
     </div>
-</div>
 
-<script src="script.js"></script>
+
+
+    <script>
+        function calcularTempo() {
+            const inicioNamoro = new Date("2023-08-27T17:17:00-03:00");
+            const agora = new Date();
+
+            const diffTempo = agora - inicioNamoro;
+
+            const dias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diffTempo % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diffTempo % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diffTempo % (1000 * 60)) / 1000);
+
+            if (dias > 365) {
+                const anos = Math.floor(dias / 365);
+                const meses = Math.floor((dias % 365) / 30);
+                const diasRestantes = dias % 30;
+
+                document.querySelector('.contador').innerText = `${anos} anos, ${meses} meses, ${diasRestantes} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+            } else {
+                document.querySelector('.contador').innerText = `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+            }
+
+        }
+
+        setInterval(calcularTempo, 1000);
+    </script>
+
 </body>
 </html>
