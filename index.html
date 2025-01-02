@@ -3,95 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contagem do nosso namoro</title>
+    <title>Aniversário do Gustavo</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7e1da;
+            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 50px;
+            background-color: #f4f4f4;
+            color: #333;
         }
-
-        .carta {
-            max-width: 600px;
-            margin: 0 auto;
+        .header {
             padding: 20px;
-            background-color: #fff;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .images img {
+            width: 300px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        h1 {
-            color: #e44d26;
+        .details {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
         }
-
-        p {
-            line-height: 1.6;
-        }
-
-        .assinatura {
-            margin-top: 30px;
-            font-style: italic;
-            color: #555;
-        }
-        
-        .foto img {
-            width: 100%;
-            height: auto;
+        a {
+            display: inline-block;
             margin-top: 20px;
-            border-radius: 8px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-
-    <div class="carta">
-        <h1>Dia 27/08/2023 às 17:17</h1>
-        <p>Feliz</p>
-        <p class="contador"></p>
-        <p>de namoro!</p>
-        <div class="foto">
-            <img src="Fotos/fotoBellaegus.JPG" alt="Olha nois">
-        </div>
-        <p>Naquele dia frio, no sofá da sua casa, deitados do lados dos seus pais, a gente começou algo lindo.</p>
-        <p>Pra sempre eu e você, ta baum!</p>
-        <p>Eu te amo demais, meu amor!</p>
-        <p></p>
-        <p></p>
-
-        <p>Com todo o meu amor,</p>
-
-        <p class="assinatura">Gusmento rs</p>
+    <div class="header">
+        <h1>Aniversário do Gustavo</h1>
+        <h3>26/01 - Domingo 18h</h3>
+        <p>Kartódromo de Interlagos (Ayrton Senna)</p>
+        <p>Av. Jacinto Júlio, 1.311. Cidade Dutra</p>
     </div>
-
-
-
-    <script>
-        function calcularTempo() {
-            const inicioNamoro = new Date("2023-08-27T17:17:00-03:00");
-            const agora = new Date();
-
-            const diffTempo = agora - inicioNamoro;
-
-            const dias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diffTempo % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diffTempo % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diffTempo % (1000 * 60)) / 1000);
-
-            if (dias > 365) {
-                const anos = Math.floor(dias / 365);
-                const meses = Math.floor((dias % 365) / 30);
-                const diasRestantes = dias % 30;
-
-                document.querySelector('.contador').innerText = `${anos} anos, ${meses} meses, ${diasRestantes} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
-            } else {
-                document.querySelector('.contador').innerText = `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
-            }
-
-        }
-
-        setInterval(calcularTempo, 1000);
-    </script>
-
+    <div class="images">
+        <img src="455821273_515257804518139_2649162695928424243_n.jpeg" alt="Image 1">
+        <img src="formula-1-3-1-scaled.jpg" alt="Image 2">
+        <img src="pacote-grande-premio-de-sao-paulo.jpg" alt="Image 3">
+    </div>
+    <div class="details">
+        <p>Conto com a sua presença e que confirme através do link abaixo que irá participar da bateria.</p>
+        <p><strong>Informações:</strong></p>
+        <ul style="text-align: left; display: inline-block; margin: 0 auto;">
+            <li>R$150,00 por pessoa, cada um por si.</li>
+            <li>Baterias têm duração de 25 minutos: 5 minutos de tomada de tempo e 20 minutos de corrida.</li>
+            <li>Chegue com uma hora de antecedência, pois o local não aceita atrasos.</li>
+            <li>Locação do macacão custa R$30,00 (opcional). É obrigatório usar calça e blusa de manga longa.</li>
+        </ul>
+        <p>A organização do local pede 50% do valor total dos participantes para garantirmos a vaga, com 7 dias de antecedência da data reservada.</p>
+        <a href="https://wa.me/?text=CONFIRMO%20A%20PRESENÇA!%20VRUUUUUUMMMMMM" target="_blank">
+            CLIQUE AQUI PARA CONFIRMAR A PRESENÇA!
+        </a>
+    </div>
 </body>
 </html>
