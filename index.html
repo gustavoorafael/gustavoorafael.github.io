@@ -1,79 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aniversário do Gustavo</title>
-    <style>        
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            background: url('Fotos/455821273_515257804518139_2649162695928424243_n.jpeg') no-repeat center top;
-            background-size: cover;
-            height: 100vh;
-        }
-        .content {
-            background-color: rgba(0, 0, 0, 0.4);
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 20px auto;
-            position: relative;
-        }
-
-        h1, h3, p {
-            text-align: center; 
-        },
-        
-        h1 {
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-        h3 {
-            font-size: 0.9em;
-            margin: 5px 0;
-        }
-        p, ul {
-            font-size: 0.7em;
-            margin: 5px 0;
-        }
-        a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 15px;
-            background-color: #d60008;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-size: 1em;
-        }
-        a:hover {
-            background-color: #c50009;
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="page-title">Gustavo Rafael • Software Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
 </head>
-<body>
-    <div class="content">
-        <h1>Aniversário do Gustavo</h1>
-        <h3>26/01 - Domingo 17h</h3>
-        <p>Kartódromo de Interlagos (Ayrton Senna) - Av. Jacinto Júlio, 1.311</p>
-        <p>Comemoração do meu aniversário. Conto com a sua presença e que confirme através do link abaixo que irá participar da bateria.</p>
-        <p><strong>Informações</strong></p>
-        <ul style="text-align: left; margin: 10px auto; display: inline-block;">
-            <li>R$150,00 por pessoa, cada um por si, pois não tenho o poder aquisitivo do Ayrton, infelizmente.</li>
-            <li>Baterias têm duração de 25 minutos: 5 minutos de tomada de tempo e 20 minutos de corrida.</li>
-            <li>Peço que chegue com uma hora de antecedência, pois o local não aceita atrasos.</li>
-            <li>A locação do macacão custa 30,00 a parte do valor da bateria, o uso não é obrigatório. Mas é obrigatório usar calça e blusa de manga longa.</li>
-            <li>A organização do local pede 50% do valor total dos participantes para garantirmos a vaga, com 7 dias de antecedência.</li>
-            <li><strong>PIX: 11968795644</strong> </li>
-        </ul>       
-        <a href="https://wa.me/11968795644?text=CONFIRMO%20A%20PRESENÇA!%20VRUUUUUUMMMMMM!!!" target="_blank">
-            CLIQUE AQUI PARA CONFIRMAR A PRESENÇA!
-        </a>
+
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-cyan-500/30 selection:text-violet-100" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;">
+  
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60 border-b border-white/5">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
+      <a href="#home" class="group inline-flex items-center gap-2">
+        <span id="nav-logo-text" class="text-[#00c2ff] font-bold text-xl group-hover:text-white transition">Gustavo Rafael</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <li><a href="#experience" class="nav-link hover:text-white transition" id="nav-experience"></a></li>
+        <li><a href="#education" class="nav-link hover:text-white transition" id="nav-education"></a></li>
+        <li><a href="#projects" class="nav-link hover:text-white transition" id="nav-projects"></a></li>
+        <li><a href="#skills" class="nav-link hover:text-white transition" id="nav-skills"></a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <button id="lang-toggle" class="text-sm px-3 py-1 rounded-md border border-white/10 hover:bg-white/10 transition"></button>
+        <a href="#contactme" class="rounded-md bg-sky-500 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-cyan-500/30 hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500" id="btn-contato"></a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="relative mx-auto max-w-7xl px-6 pt-16 pb-8 md:pt-24">
+    <div class="grid items-center gap-10 md:grid-cols-[1.1fr_.9fr]">
+      <div class="reveal fade-left">
+        <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight">Gustavo Rafael</h1>
+        <h2 class="text-2xl md:text-3xl text-sky-400 font-medium mt-2">Software Engineer</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed text-lg max-w-xl" id="sobre-desc-short"></p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#contactme" class="rounded-md bg-sky-500 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-cyan-500/30 hover:bg-cyan-500 transition" id="btn-contato-hero">Contato</a>
+          <a href="#" target="_blank" class="rounded-md bg-slate-800 border border-white/10 px-6 py-3 text-sm font-medium text-white hover:bg-slate-700 transition" id="btn-cv"></a>
+        </div>
+      </div>
+      <div class="reveal fade-right">
+        <div class="relative mx-auto max-w-sm">
+          <img src="./assets/profile.jpeg" alt="Foto de perfil" class="w-full rounded-2xl border border-white/10 shadow-2xl object-cover aspect-square" onerror="this.src='https://placehold.co/400x400/1e293b/a78bfa?text=GR'" />
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section id="experience" class="mx-auto max-w-7xl px-6 py-20 border-t border-white/5">
+    <h2 class="text-3xl font-bold text-white mb-10 reveal fade-up" id="exp-title"></h2>
+    
+    <div class="border-l-2 border-cyan-500 pl-6 ml-3 space-y-12 reveal fade-up relative">
+      
+      <div class="relative">
+        <div class="absolute w-4 h-4 bg-cyan-500 rounded-full -left-[33px] top-1.5 border-4 border-slate-950"></div>
+        <h3 class="text-xl font-bold text-white" id="exp3-role"></h3>
+        <p class="text-sky-400 font-medium" id="exp3-company"></p>
+        <p class="text-sm text-slate-400 mb-4" id="exp3-date"></p>
+        <ul class="list-disc pl-5 text-slate-300 space-y-2">
+          <li id="exp3-desc1"></li>
+          <li id="exp3-desc2"></li>
+          <li id="exp3-desc3"></li>
+        </ul>
+      </div>
+
+      <div class="relative">
+        <div class="absolute w-4 h-4 bg-cyan-500 rounded-full -left-[33px] top-1.5 border-4 border-slate-950"></div>
+        <h3 class="text-xl font-bold text-white" id="exp1-role"></h3>
+        <p class="text-sky-400 font-medium" id="exp1-company"></p>
+        <p class="text-sm text-slate-400 mb-4" id="exp1-date"></p>
+        <ul class="list-disc pl-5 text-slate-300 space-y-2">
+          <li id="exp1-desc1"></li>
+          <li id="exp1-desc2"></li>
+          <li id="exp1-desc3"></li>
+        </ul>
+      </div>
+
+      <div class="relative">
+        <div class="absolute w-4 h-4 bg-cyan-500 rounded-full -left-[33px] top-1.5 border-4 border-slate-950"></div>
+        <h3 class="text-xl font-bold text-white" id="exp2-role"></h3>
+        <p class="text-sky-400 font-medium" id="exp2-company"></p>
+        <p class="text-sm text-slate-400 mb-4" id="exp2-date"></p>
+        <ul class="list-disc pl-5 text-slate-300 space-y-2">
+          <li id="exp2-desc1"></li>
+          <li id="exp2-desc2"></li>
+          <li id="exp2-desc3"></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education" class="mx-auto max-w-7xl px-6 py-20 border-t border-white/5">
+    <h2 class="text-3xl font-bold text-white mb-10 reveal fade-up" id="edu-title"></h2>
+    
+    <div class="grid gap-6 md:grid-cols-2 reveal fade-up">
+      <div class="bg-slate-900/50 p-8 rounded-2xl border border-white/10 hover:border-sky-500/50 transition">
+        <i class="fa-solid fa-graduation-cap text-3xl text-sky-500 mb-4"></i>
+        <h3 class="text-xl font-bold text-white" id="edu1-degree"></h3>
+        <p class="text-slate-300 mt-2" id="edu1-uni"></p>
+        <p class="text-sm text-sky-400 mt-2 font-medium" id="edu1-date"></p>
+      </div>
+
+      <div class="bg-slate-900/50 p-8 rounded-2xl border border-white/10 hover:border-sky-500/50 transition">
+        <i class="fa-solid fa-graduation-cap text-3xl text-sky-500 mb-4"></i>
+        <h3 class="text-xl font-bold text-white" id="edu2-degree"></h3>
+        <p class="text-slate-300 mt-2" id="edu2-uni"></p>
+        <p class="text-sm text-sky-400 mt-2 font-medium" id="edu2-date"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="mx-auto max-w-7xl px-6 py-20 border-t border-white/5">
+    <h2 class="text-3xl font-bold text-white reveal fade-up" id="projetos-title"></h2>
+    <p class="reveal fade-up mt-3 max-w-2xl text-slate-400" id="projetos-desc"></p>
+
+    <div class="mt-10 grid gap-8 md:grid-cols-2 reveal fade-up">
+      <article class="bg-slate-900/50 border border-white/10 rounded-2xl overflow-hidden hover:border-sky-500/50 transition flex flex-col">
+        <div class="p-6 flex-1">
+          <h3 id="proj1-title" class="text-xl font-bold text-white mb-2"></h3>
+          <p id="proj1-desc" class="text-slate-300 text-sm mb-4"></p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Java + Spring Boot</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Apache Kafka </span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Kafka UI</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Springdoc OpenAPI / Swagger UI</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Docker</span>
+          </div>
+        </div>
+        <div class="px-6 pb-6 mt-auto">
+          <a id="proj1-link" class="text-sky-400 hover:text-violet-300 text-sm font-medium inline-flex items-center gap-2" href="https://github.com/gustavoorafael/order-service" target="_blank">
+            Ver projeto <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="bg-slate-900/50 border border-white/10 rounded-2xl overflow-hidden hover:border-sky-500/50 transition flex flex-col">
+        <div class="p-6 flex-1">
+          <h3 id="proj2-title" class="text-xl font-bold text-white mb-2"></h3>
+          <p id="proj2-desc" class="text-slate-300 text-sm mb-4"></p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Angular</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">NestJS</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">TypeScript</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">PostgreSQL</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">AWS (EC2/S3)</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Vercel</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">Nginx</span>
+            <span class="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="px-6 pb-6 mt-auto">
+          <a id="proj2-link" class="text-sky-400 hover:text-violet-300 text-sm font-medium inline-flex items-center gap-2" href="https://github.com/gustavoorafael/product-catalog-web" target="_blank">
+            Ver projeto <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="mx-auto max-w-7xl px-6 py-20 border-t border-white/5">
+    <div class="reveal fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-white" id="habilidades-title"></h2>
+    </div>
+
+    <div class="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3 reveal fade-up">
+      
+      <div>
+        <h3 class="text-xs font-bold tracking-widest text-slate-400 mb-5 uppercase" id="skill-cat-languages"></h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Java</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Go</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">TypeScript</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">JavaScript</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Python</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">SQL</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-widest text-slate-400 mb-5 uppercase" id="skill-cat-frameworks"></h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Spring Boot</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">React</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Node.js</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">NestJS</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-widest text-slate-400 mb-5 uppercase" id="skill-cat-cloud"></h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">AWS</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Docker</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Kubernetes</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">CI/CD</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-widest text-slate-400 mb-5 uppercase" id="skill-cat-messaging"></h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">PostgreSQL</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">MongoDB</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">ArangoDB</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">OracleDB</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">RabbitMQ</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Kafka</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-widest text-slate-400 mb-5 uppercase" id="skill-cat-tools"></h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Git</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Maven</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Scrum</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">JUnit</span>
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Mockito</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-widest text-slate-400 mb-5 uppercase" id="skill-cat-observability"></h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-1.5 bg-slate-900/80 border border-slate-700 rounded-full text-slate-300 text-sm hover:border-sky-500 transition cursor-default">Graylog</span>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="contactme" class="mx-auto max-w-7xl px-6 py-24 md:py-32 border-t border-white/5">
+    <div class="reveal fade-up text-center md:text-left">
+      <h2 class="text-3xl md:text-5xl font-bold text-white max-w-4xl" id="contato-title"></h2>
+      <p class="mt-6 text-lg text-slate-400 max-w-2xl" id="contato-desc"></p>
+
+      <div class="mt-10">
+        <a href="mailto:gustavo.oliveira.rafael@outlook.com" class="text-xl md:text-2xl font-bold text-sky-400 hover:text-violet-300 transition-colors">
+          gustavo.oliveira.rafael@outlook.com
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap items-center justify-center md:justify-start gap-4">
+        <a class="flex items-center gap-2 px-5 py-3 bg-slate-900 border border-white/10 rounded-lg hover:border-sky-500/50 hover:text-white transition text-slate-300" href="https://www.linkedin.com/in/gustavo-oliveira-rafael" target="_blank">
+          <i class="fa-brands fa-linkedin-in text-xl"></i> <span>LinkedIn</span>
+        </a>
+        <a class="flex items-center gap-2 px-5 py-3 bg-slate-900 border border-white/10 rounded-lg hover:border-sky-500/50 hover:text-white transition text-slate-300" href="https://github.com/gustavoorafael" target="_blank">
+          <i class="fa-brands fa-github text-xl"></i> <span>GitHub</span>
+        </a>
+        <a class="flex items-center gap-2 px-5 py-3 bg-slate-900 border border-white/10 rounded-lg hover:border-sky-500/50 hover:text-white transition text-slate-300" href="https://wa.me/5511968795644" target="_blank">
+          <i class="fa-brands fa-whatsapp text-xl"></i> <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5 bg-slate-950">
+    <div class="mx-auto max-w-7xl px-6 py-10 text-sm text-slate-400 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>© Gustavo Rafael. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="pointer-events-none fixed bottom-8 right-8 z-50 translate-y-10 rounded-full bg-sky-500 p-3 text-white shadow-lg shadow-sky-500/30 opacity-0 transition-all duration-300 hover:bg-cyan-500 focus:outline-none" aria-label="Voltar ao topo">
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+  </button>
+
+  <script src="./main.js"></script>
 </body>
 </html>
