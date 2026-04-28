@@ -10,16 +10,16 @@ const translations = {
     "btn-cv": "Baixar CV",
 
     "sobre-desc-short": "Olá! Sou Gustavo Rafael, Engenheiro de Software apaixonado por código limpo, confiabilidade de sistemas e entrega de soluções de alto impacto. Tenho ampla experiência em arquiteturas orientadas a eventos e ambientes cloud-native, utilizando Java (Spring Boot), Go, Kafka, Docker e Kubernetes. Sou um comunicador eficaz com proficiência C1 em inglês, o que me permite atuar de forma fluida em equipes ágeis, internacionais e distribuídas.",
-    
+
     "exp-title": "Experiência Profissional",
-    
+
     "exp1-role": "Engenheiro de Software",
     "exp1-company": "Netcracker Technology - São Paulo, SP",
     "exp1-date": "Mar 2025 - Dez 2025",
     "exp1-desc1": "Integrei o time inaugural brasileiro no produto NDO (Network Domain Orchestrator), entregando soluções OSS para operadoras Tier 1 como Google Fiber, T-Mobile e Claro.",
     "exp1-desc2": "Projetei e desenvolvi microsserviços escaláveis e orientados a eventos utilizando Java (Spring Boot), Go e Kafka.",
     "exp1-desc3": "Entreguei personalizações críticas para clientes e correções de automação full-stack envolvendo React, Docker e Kubernetes na nuvem privada da Netcracker.",
-    
+
     "exp2-role": "Estagiário de Engenharia de Software",
     "exp2-company": "Élin Duxus Consultoria - São Paulo, SP",
     "exp2-date": "Set 2023 - Mar 2025",
@@ -74,17 +74,16 @@ const translations = {
     "btn-cv": "Download Résumé",
 
     "sobre-desc-short": "Hi! I'm Gustavo Rafael, a Software Engineer passionate about clean code, system reliability, and delivering high-impact solutions. I have extensive experience in event-driven architectures and cloud-native environments, using Java (Spring Boot), Kafka, Docker, and Kubernetes. I am an effective communicator with fluent English proficiency, which allows me to work in agile, international, and distributed teams.",
-    
-    
+
     "exp-title": "Professional Experience",
-    
+
     "exp1-role": "Software Engineer",
     "exp1-company": "Netcracker Technology - São Paulo, SP",
     "exp1-date": "Mar 2025 - Dec 2025",
     "exp1-desc1": "Member of the inaugural Brazilian engineering team working on Netcracker's NDO product, delivering OSS solutions for Tier 1 global telecom operators, as Google Fiber and T-Mobile.",
     "exp1-desc2": "Designed and developed scalable, event-driven microservices using Java (Spring Boot), Go, and Kafka.",
     "exp1-desc3": "Delivered critical client-specific customizations and full-stack automation fixes involving React, Docker, and Kubernetes on Netcracker's private cloud.",
-    
+
     "exp2-role": "Software Engineering Intern",
     "exp2-company": "Élin Duxus Consultoria - São Paulo, SP",
     "exp2-date": "Sep 2023 - Mar 2025",
@@ -129,31 +128,50 @@ const translations = {
   }
 };
 
+const HTML_SAFE_IDS = new Set([]);
+
 function setLanguage(lang) {
+  const dict = translations[lang];
+  if (!dict) return;
+
   document.querySelectorAll("[id]").forEach(el => {
-    if (translations[lang] && translations[lang][el.id]) {
-      el.innerHTML = translations[lang][el.id];
+    const value = dict[el.id];
+    if (value === undefined) return;
+    if (HTML_SAFE_IDS.has(el.id)) {
+      el.innerHTML = value;
+    } else {
+      el.textContent = value;
     }
   });
-  
+
   localStorage.setItem("lang", lang);
+
   const btn = document.getElementById("lang-toggle");
-  if (btn) btn.textContent = lang === "pt" ? "EN" : "PT";
+  if (btn) {
+    const nextLang = lang === "pt" ? "EN" : "PT";
+    btn.textContent = nextLang;
+    btn.setAttribute(
+      "aria-label",
+      lang === "pt" ? "Switch language to English" : "Mudar idioma para Português"
+    );
+  }
 
   const btnCv = document.getElementById("btn-cv");
   if (btnCv) {
     if (lang === "pt") {
       btnCv.setAttribute("href", "./assets/EngenheiroDeSoftwareCV.pdf");
-      btnCv.setAttribute("download", "GustavoRafael_CV_PT.pdf"); 
+      btnCv.setAttribute("download", "GustavoRafael_CV_PT.pdf");
     } else {
       btnCv.setAttribute("href", "./assets/GustavoRafaelResume.pdf");
-      btnCv.setAttribute("download", "GustavoRafael_Resume_EN.pdf"); 
+      btnCv.setAttribute("download", "GustavoRafael_Resume_EN.pdf");
     }
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || (navigator.language.includes("pt") ? "pt" : "en");
+  const savedLang =
+    localStorage.getItem("lang") ||
+    (navigator.language.startsWith("pt") ? "pt" : "en");
   setLanguage(savedLang);
 
   const toggleBtn = document.getElementById("lang-toggle");
@@ -164,24 +182,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const navLinks = document.querySelectorAll(".nav-link");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.target.classList.contains('reveal')) {
-        entry.target.classList.toggle("active", entry.isIntersecting);
-      }
-      if (entry.target.tagName === 'SECTION' && entry.isIntersecting) {
-        navLinks.forEach(link => {
-          if(link.getAttribute("href") === `#${entry.target.id}`) {
-             link.classList.add("text-white");
-             link.classList.remove("text-slate-300");
-          } else {
-             link.classList.remove("text-white");
-             link.classList.add("text-slate-300");
-          }
-        });
-      }
-    });
-  }, { threshold: 0.15, rootMargin: "-20% 0px -20% 0px" });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.target.classList.contains("reveal")) {
+          entry.target.classList.toggle("active", entry.isIntersecting);
+        }
+        if (entry.target.tagName === "SECTION" && entry.isIntersecting) {
+          navLinks.forEach(link => {
+            const isActive = link.getAttribute("href") === `#${entry.target.id}`;
+            link.classList.toggle("nav-active", isActive);
+            link.classList.toggle("text-white", isActive);
+            link.classList.toggle("text-slate-300", !isActive);
+          });
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "-20% 0px -20% 0px" }
+  );
 
   document.querySelectorAll(".reveal, section[id]").forEach(el => observer.observe(el));
 
@@ -189,13 +207,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bttBtn) {
     window.addEventListener("scroll", () => {
       const isVisible = window.scrollY > 400;
-      const showClasses = ["opacity-100", "translate-y-0", "pointer-events-auto"];
-      const hideClasses = ["opacity-0", "translate-y-10", "pointer-events-none"];
-      
-      showClasses.forEach(c => bttBtn.classList.toggle(c, isVisible));
-      hideClasses.forEach(c => bttBtn.classList.toggle(c, !isVisible));
+      bttBtn.classList.toggle("opacity-100",        isVisible);
+      bttBtn.classList.toggle("translate-y-0",      isVisible);
+      bttBtn.classList.toggle("pointer-events-auto",isVisible);
+      bttBtn.classList.toggle("opacity-0",          !isVisible);
+      bttBtn.classList.toggle("translate-y-10",     !isVisible);
+      bttBtn.classList.toggle("pointer-events-none",!isVisible);
     });
-    bttBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    bttBtn.addEventListener("click", () =>
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    );
   }
-
 });
